@@ -5,7 +5,7 @@ import type * as Preset from "@docusaurus/preset-classic";
 const config: Config = {
   title: "EchoVault",
   tagline: "Embeddable distributed in-memory data store.",
-  favicon: "img/favicon.ico",
+  favicon: "img/echovault-logo.png",
 
   // Set the production url of your site here
   url: "https://echovault.io",
@@ -47,13 +47,15 @@ const config: Config = {
   ],
 
   themeConfig: {
+    colorMode: {
+      respectPrefersColorScheme: true,
+    },
     // Replace with your project's social card
-    image: "img/docusaurus-social-card.jpg",
     navbar: {
-      title: "My Site",
+      title: "",
       logo: {
-        alt: "My Site Logo",
-        src: "img/logo.svg",
+        alt: "EchoVault Logo",
+        src: "img/echovault-logo.png",
       },
       items: [
         {
