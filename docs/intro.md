@@ -2,46 +2,31 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Getting started
+## Client-Server
 
-Let's discover **Docusaurus in less than 5 minutes**.
+## Embedded
+Install EchoVault with: go get github.com/echoVault/echoVault. Run go mod tidy to pull all of EchoVault's dependencies.
 
-## Getting Started
+Here's an example of using EchoVault as an embedded library. You can access all of EchoVault's commands using an ergonomic API.
 
-Get started by **creating a new site**.
+Homebrew
+To install via homebrew, run:
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+brew tap echovault/echovault
+brew install echovault/echovault/echovault
+Once installed, you can run the server with the following command: echovault --bind-addr=localhost --data-dir="path/to/persistence/directory"
 
-### What you'll need
+Next, install the client via homebrew.
 
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+#### Binaries
+You can download the binaries by clicking on a release tag and downloading the binary for your system.
 
-## Generate a new site
+### Clients
+EchoVault uses RESP, which makes it compatible with existing Redis clients.
 
-Generate a new Docusaurus site using the **classic template**.
+# Configuration
+tbw
 
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+# Evicition
+tbw
