@@ -55,19 +55,14 @@ const config: Config = {
       title: "",
       logo: {
         alt: "EchoVault Logo",
-        src: "img/echovault-logo.png",
+        src: "img/EchoVault Cover.png",
       },
       items: [
         {
           type: "docSidebar",
           sidebarId: "documentationSidebar",
-          position: "left",
+          position: "right",
           label: "Documentation",
-        },
-        {
-          to: "/blog",
-          label: "Blog",
-          position: "left",
         },
         {
           href: "https://github.com/EchoVault/EchoVault",
@@ -100,10 +95,7 @@ const config: Config = {
         {
           title: "More",
           items: [
-            {
-              label: "Blog",
-              to: "/blog",
-            },
+          
             {
               label: "GitHub",
               href: "https://github.com/EchoVault/EchoVault",
