@@ -53,9 +53,10 @@ const config: Config = {
     // Replace with your project's social card
     navbar: {
       title: "",
+      style: "dark",
       logo: {
         alt: "EchoVault Logo",
-        src: "img/EchoVault Cover.png",
+        src: "img/echovault-logo.png",
       },
       items: [
         {
@@ -95,7 +96,6 @@ const config: Config = {
         {
           title: "More",
           items: [
-          
             {
               label: "GitHub",
               href: "https://github.com/EchoVault/EchoVault",
