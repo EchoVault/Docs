@@ -121,6 +121,6 @@ Example: "10s", "5m30s", "100ms"<br/>
 Description: The interval between each sampling of keys to evict. By default, this happens every 100 milliseconds.
 
 Flag: `--loadmodule`<br/>
-Type: `string`<br/>
+Type: `string/path`<br/>
 Example: "path/to/module.so"<br/>
 Description: The full file path to the .so file to load into EchoVault to extend its commands. This flag can be specified multiple times to load multiple plugins.
