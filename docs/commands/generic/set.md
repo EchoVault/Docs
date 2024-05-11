@@ -4,20 +4,22 @@ sidebar_position: 1
 
 # SET
 
-Syntax:
+<b>Syntax</b>:
 
 ```
 SET key value [NX | XX] [GET] [EX seconds | PX milliseconds |
 EXAT unix-time-seconds | PXAT unix-time-milliseconds]
 ```
 
-Module: `generic`
+<b>Module</b>: `generic`
 
-ACL Categories: `@write`, `@slow`
+<b>ACL Categories</b>: `@write`, `@slow`
+
+<b>Description</b>
 
 Set the value of a key, considering the value's type. If the key already exists, it is overwritten.
 
-Options:
+<b>Options</b>:
 
 - NX - Only set if the key does not exist.
 - XX - Only set if the key exists.
