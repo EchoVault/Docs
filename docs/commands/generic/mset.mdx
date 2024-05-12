@@ -6,4 +6,14 @@
   categories={['write', 'slow']}
   description={`Automatically set or modify multiple key/value pairs.`}
   options={[]}
+  examples={{
+    cli: [{description: "Set multiple key/value pairs:", code: `MSET key1 value1 key2 value2 key3 value3`}],
+    go: [
+    {
+      description: "Set multiple key/value pairs:",
+      code: `ev, _ := echovault.NewEchoVault()
+_, _ = ev.MSet(map[string]string{"key1": "value1", "key2": "value2", "key3": "value3"})`
+    }
+    ]
+  }}
 />
