@@ -6,4 +6,14 @@
   categories={['read', 'fast']}
   description={`Get the value at the specified key.`}
   options={[]}
+  examples={{
+    cli: [{description: "Get the value stored at a key:", code: `GET key`}],
+    go: [
+      {
+        description: "Get the value stored at a key:",
+        code: `ev, _ := echovault.NewEchoVault()
+value, _ := ev.Get("key")`
+      }
+    ],
+  }}
 />
