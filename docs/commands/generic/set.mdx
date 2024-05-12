@@ -17,4 +17,46 @@ EXAT unix-time-seconds | PXAT unix-time-milliseconds]`
     "EXAT - Expire at the exact time in unix seconds (positive integer).",
     "PXAT - Expire at the exat time in unix milliseconds (positive integer).",
   ]}
+  examples={{
+    cli: [
+    {
+      description: "Set a value at a key:",
+      code: `SET name EchoVault`
+    },
+    {
+      description: "Set a value only if the key does not exist:",
+      code: `SET name EchoVault NX`
+    },
+    {
+      description: "Set a value if key already exists and get the previous value:",
+      code: `SET name EchoVault XX GET`
+    },
+    {
+      description: "Set a value if the key already exists, return the previous value, and expire after 10 seconds:",
+      code: `SET name EchoVault XX GET EX 10`
+    }
+    ],
+    go: [
+    {
+      description: "Set a value at a key:",
+      code: `ev, _ := echovault.NewEchoVault()
+_, _ = ev.Set("name", "EchoVault", echovault.SetOptions{})`,
+    },
+    {
+      description: "Set a value only if the key does not exist:",
+      code: `ev, _ := echovault.NewEchoVault()
+_, _ = ev.Set("name", "EchoVault", echovault.SetOptions{NX: true})`,
+    },
+    {
+      description: "Set a value if key already exists and get the previous value:",
+      code: `ev, _ := echovault.NewEchoVault()
+_, _ = ev.Set("name", "EchoVault", echovault.SetOptions{XX: true, GET: true})`,
+    },
+    {
+      description: "Set a value if the key already exists, return the previous value, and expire after 10 seconds:",
+      code: `ev, _ := echovault.NewEchoVault()
+_, _ = ev.Set("name", "EchoVault", echovault.SetOptions{XX: true, GET: true, EX: 10})`,
+    }
+    ],
+  }}
 />
