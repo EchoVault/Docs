@@ -14,13 +14,19 @@
     go: [
       {
         description: "Delete a single key:",
-        code: `ev, _ := echovault.NewEchoVault()
-_, _ = ev.Del("key")`,
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+noOfDeletedKeys, err = vault.Del("key")`,
       },
       {
         description: "Delete multiple keys:",
-        code: `ev, _ := echovault.NewEchoVault()
-_, _ = ev.Del("key1", "key2", "key3")`,
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+noOfDeletedKeys, err = vault.Del("key1", "key2", "key3")`,
       }
     ]
   }}

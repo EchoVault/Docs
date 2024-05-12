@@ -33,23 +33,35 @@
     go: [
     {
         description: "Add an expiration to a key:", 
-        code: `ev, _ := echovault.NewEchoVault()
-_, _ = ev.PExpire("key", 10000, echovault.PExpireOptions{})`
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+updated, err := vault.PExpire("key", 10000, echovault.PExpireOptions{})`
       },
       {
         description: "Add an expiration to a key only if it does not have one already:",
-        code: `ev, _ := echovault.NewEchoVault()
-_, _ = ev.PExpire("key", 10000, echovault.PExpireOptions{NX: true})`,
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+updated, err := vault.PExpire("key", 10000, echovault.PExpireOptions{NX: true})`,
       },
       {
         description: "Add an expiration to a key only if it has one already:",
-        code: `ev, _ := echovault.NewEchoVault()
-_, _ = ev.PExpire("key", 10000, echovault.PExpireOptions{XX: true})`,
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+updated, err := vault.PExpire("key", 10000, echovault.PExpireOptions{XX: true})`,
       },
       {
         description: "Add an expiration to a key only if it already has one that is less than the current expiry:",
-        code: `ev, _ := echovault.NewEchoVault()
-_, _ = ev.PExpire("key", 10000, echovault.PExpireOptions{XX: true, LT: true})`,
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+updated, err := vault.PExpire("key", 10000, echovault.PExpireOptions{XX: true, LT: true})`,
       }
     ]
   }}

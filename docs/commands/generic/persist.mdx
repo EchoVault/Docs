@@ -11,8 +11,11 @@
     go: [
     {
       description: "",
-      code: `vault, _ := echovault.NewEchoVault()
-ok, _ := vault.Persist("key")`
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+ok, err := vault.Persist("key")`
     }
     ]
   }}

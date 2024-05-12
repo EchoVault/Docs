@@ -13,8 +13,11 @@ If the key does not exist, -2 is returned.`}
     go: [
       {
         description: "",
-        code: `vault, _ := echovault.NewEchoVault()
-ttl, _ := vault.TTL("key")`
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+ttl, err := vault.TTL("key")`
       }
     ]
   }}

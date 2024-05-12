@@ -7,12 +7,15 @@
   description={`Get the value at the specified key.`}
   options={[]}
   examples={{
-    cli: [{description: "Get the value stored at a key:", code: `GET key`}],
+    cli: [{description: "", code: `GET key`}],
     go: [
       {
-        description: "Get the value stored at a key:",
-        code: `ev, _ := echovault.NewEchoVault()
-value, _ := ev.Get("key")`
+        description: "",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+value, err := vault.Get("key")`
       }
     ],
   }}
