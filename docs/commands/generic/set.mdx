@@ -59,7 +59,7 @@ ok, err := vault.Set("name", "EchoVault", echovault.SetOptions{NX: true})`,
 if err != nil {
   log.Fatal(err)
 }
-ok, err := vault.Set("name", "EchoVault", echovault.SetOptions{XX: true, GET: true})`,
+previousValue, err := vault.Set("name", "EchoVault", echovault.SetOptions{XX: true, GET: true})`,
     },
     {
       description: "Set a value if the key already exists, return the previous value, and expire after 10 seconds:",
@@ -67,7 +67,7 @@ ok, err := vault.Set("name", "EchoVault", echovault.SetOptions{XX: true, GET: tr
 if err != nil {
   log.Fatal(err)
 }
-ok, err := vault.Set("name", "EchoVault", echovault.SetOptions{XX: true, GET: true, EX: 10})`,
+previousValue, err := vault.Set("name", "EchoVault", echovault.SetOptions{XX: true, GET: true, EX: 10})`,
     }
     ],
   }}
