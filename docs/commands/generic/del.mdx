@@ -8,17 +8,17 @@
   options={[]}
   examples={{
     cli: [
-      {description: "Delete a single key", code: `DEL key`},
-      {description: "Delete multiple keys",code: `DEL key1 key2 key3`}
+      {description: "Delete a single key:", code: `DEL key`},
+      {description: "Delete multiple keys:",code: `DEL key1 key2 key3`}
     ],
     go: [
       {
-        description: "Delete a single key",
+        description: "Delete a single key:",
         code: `ev, _ := echovault.NewEchoVault()
 _, _ = ev.Del("key")`,
       },
       {
-        description: "Delete multiple keys",
+        description: "Delete multiple keys:",
         code: `ev, _ := echovault.NewEchoVault()
 _, _ = ev.Del("key1", "key2", "key3")`,
       }
