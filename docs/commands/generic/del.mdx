@@ -6,4 +6,22 @@
   categories={['keyspace', 'write', 'fast']}
   description={`Removes one or more keys from the store.`}
   options={[]}
+  examples={{
+    cli: [
+      {description: "Delete a single key", code: `DEL key`},
+      {description: "Delete multiple keys",code: `DEL key1 key2 key3`}
+    ],
+    go: [
+      {
+        description: "Delete a single key",
+        code: `ev, _ := echovault.NewEchoVault()
+_, _ = ev.Del("key")`,
+      },
+      {
+        description: "Delete multiple keys",
+        code: `ev, _ := echovault.NewEchoVault()
+_, _ = ev.Del("key1", "key2", "key3")`,
+      }
+    ]
+  }}
 />
