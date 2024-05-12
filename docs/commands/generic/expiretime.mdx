@@ -8,4 +8,14 @@
 Return -1 if the key exists but has no associated expiry time.
 Returns -2 if the key does not exist.`}
   options={[]}
+  examples={{
+    cli: [{description: "Get expire time for a key:", code: `EXPIRETIME key`}],
+    go: [
+      {
+        description: "Get expire time for a key:",
+        code: `ev, _ := echovault.NewEchoVault()
+t, _ := ev.ExpireTime("key")`
+      }
+    ],
+  }}
 />
