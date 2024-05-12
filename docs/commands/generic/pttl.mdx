@@ -8,4 +8,14 @@
 If the key exists but does not have an associated expiry time, -1 is returned.
 If the key does not exist, -2 is returned.`}
   options={[]}
+  examples={{
+    cli: [{description:"", code: `PTTL key`}],
+    go: [
+      {
+        description: "",
+        code: `vault, _ := echovault.NewEchoVault()
+ttl, _ := vault.PTTL("key")`
+      }
+    ]
+  }}
 />

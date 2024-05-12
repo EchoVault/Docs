@@ -6,4 +6,14 @@
   categories={['keyspace', 'write', 'fast']}
   description={`Removes the TTl associated with a key, turning it from a volatile key to a persistent key.`}
   options={[]}
+  examples={{
+    cli: [{description: "", code: `PERSIST key`}],
+    go: [
+    {
+      description: "",
+      code: `vault, _ := echovault.NewEchoVault()
+ok, _ := vault.Persist("key")`
+    }
+    ]
+  }}
 />
