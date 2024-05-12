@@ -11,4 +11,46 @@
   "GT - Only set the expiry time if the new expiry time is greater than the current one.",
   "LT - Only set the expiry time if the new expiry time is less than the current one.",
   ]}
+  examples={{
+    cli: [
+      {
+        description: "Add an expiration to a key:", 
+        code: `PEXPIRE key 10000`
+      },
+      {
+        description: "Add an expiration to a key only if it does not have one already:",
+        code: `PEXPIRE key 10000 NX`,
+      },
+      {
+        description: "Add an expiration to a key only if it has one already:",
+        code: `PEXPIRE key 10000 XX`,
+      },
+      {
+        description: "Add an expiration to a key only if it already has one that is less than the current expiry:",
+        code: `PEXPIRE key 10000 XX LT`,
+      }
+    ],
+    go: [
+    {
+        description: "Add an expiration to a key:", 
+        code: `ev, _ := echovault.NewEchoVault()
+_, _ = ev.PExpire("key", 10000, echovault.PExpireOptions{})`
+      },
+      {
+        description: "Add an expiration to a key only if it does not have one already:",
+        code: `ev, _ := echovault.NewEchoVault()
+_, _ = ev.PExpire("key", 10000, echovault.PExpireOptions{NX: true})`,
+      },
+      {
+        description: "Add an expiration to a key only if it has one already:",
+        code: `ev, _ := echovault.NewEchoVault()
+_, _ = ev.PExpire("key", 10000, echovault.PExpireOptions{XX: true})`,
+      },
+      {
+        description: "Add an expiration to a key only if it already has one that is less than the current expiry:",
+        code: `ev, _ := echovault.NewEchoVault()
+_, _ = ev.PExpire("key", 10000, echovault.PExpireOptions{XX: true, LT: true})`,
+      }
+    ]
+  }}
 />
