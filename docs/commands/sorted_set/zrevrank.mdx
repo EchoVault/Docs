@@ -1,0 +1,24 @@
+# ZREVRANK
+
+<Page
+  syntax={`ZREVRANK key member [WITHSCORE]`}
+  module={"sortedset"}
+  categories={["sortedset", "read", "slow"]}
+  description={`Returns the rank of the member in the sorted set in reverse order. 
+WITHSCORE modifies the result to include the score.`}
+  options={[
+    "WITHSCORE - Determines whether to return the score along with the member value."
+  ]}
+  examples={{
+    cli: [{description: "", code: `ZREVRANK key member WITHSCORE`}],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+member, err := vault.ZRevRank("key", "member", true)
+`
+    }]
+  }}
+/>
