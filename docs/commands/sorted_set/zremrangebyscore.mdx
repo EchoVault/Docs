@@ -1,0 +1,21 @@
+# ZREMRANGEBYRANK
+
+<Page
+  syntax={`ZREMRANGEBYSCORE key min max`}
+  module={"sortedset"}
+  categories={["sortedset", "write", "slow"]}
+  description={`Removes the elements whose scores are in the range between min and max.`}
+  options={[]}
+  examples={{
+    cli: [{description: "", code: `ZREMRANGEBYSCORE key 3 7`}],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+deletedCount, err := vault.ZRemRangeByScore("key", 3.55, 12.75)
+`
+    }]
+  }}
+/>

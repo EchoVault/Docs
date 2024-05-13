@@ -1,0 +1,21 @@
+# ZSCORE
+
+<Page
+  syntax={`ZSCORE key member`}
+  module={"sortedset"}
+  categories={["sortedset", "read", "fast"]}
+  description={`Returns the score of the member in the sorted set.`}
+  options={[]}
+  examples={{
+    cli: [{description: "", code: `ZSCORE key member`}],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+score, err := vault.ZScore("key", "member")
+`
+    }]
+  }}
+/>
