@@ -1,0 +1,57 @@
+# HRANDFIELD
+
+<Page 
+  syntax={`HRANDFIELD key [count [WITHVALUES]]`}
+  module={"hash"}
+  categories={["hash", "read", "slow"]}
+  description={`Returns one or more random fields from the hash.`}
+  options={[
+    `WITHVALUES - When provided, the return value will contain the field and its value. 
+    Otherwise, only the field is returned.`
+  ]}
+  examples={{
+    cli: [
+      { 
+        description: "Get random field:", 
+        code: `HRANDFIELD key` 
+      },
+      {
+        description: "Get 3 random fields:",
+        code: `HRANDFIELD key 3`
+      },
+      {
+        description: "Get 3 random fields with scores:",
+        code: `HRANDFIELD key 3 WITHVALUES`
+      }
+    ],
+    go: [
+      {
+        description: "Get random field:", 
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+fields, err := vault.HRandField("key", echovault.HRandFieldOptions{})
+`
+      },
+      {
+        description: "Get 3 random fields:",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+fields, err := vault.HRandField("key", echovault.HRandFieldOptions{Count: 3})
+`
+      },
+      {
+        description: "Get 3 random fields with scores:",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+fields, err := vault.HRandField("key", echovault.HRandFieldOptions{Count: 3, WithValues: true})
+`
+      }
+    ]
+  }}
+/>

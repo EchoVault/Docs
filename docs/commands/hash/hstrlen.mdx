@@ -1,0 +1,21 @@
+# HSTRLEN
+
+<Page 
+  syntax={`HSTRLEN key field [field ...]`}
+  module={"hash"}
+  categories={["hash", "read", "fast"]}
+  description={`Return the string length of the values stored at the specified fields. 
+  0 if the value does not exist.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `HSTRLEN key field1 field2` }],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+lengths, err := vault.HStrLen("key", "field1", "field2", "field3")`
+    }]
+  }}
+/>
