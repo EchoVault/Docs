@@ -17,15 +17,15 @@
     cli: [
       {
         description: "Add elements to sorted set:",
-        code: `ZADD sorted_set 2.5 member1 1.25 member2 3 member3`
+        code: `ZADD key 2.5 member1 1.25 member2 3 member3`
       },
       {
         description: "Add elements to sorted set, skipping members that already exist in the set:",
-        code: `ZADD sorted_set NX 2.5 member1 1.25 member2 3 member3 4 member4`
+        code: `ZADD key NX 2.5 member1 1.25 member2 3 member3 4 member4`
       },
       {
         description: "Increment the element by the specified score:",
-        code: `ZADD sorted_set INCR 5.75 member1`
+        code: `ZADD key INCR 5.75 member1`
       }
     ],
     go: [
@@ -36,7 +36,7 @@ if err != nil {
   log.Fatal(err)
 }
  changedCount, err := vault.ZAdd(
-  "sorted_set",
+  "key",
   map[string]float64{"member1": 2.5, "member2": 1.25, "member3": 3},
   echovault.ZAddOptions{},
 )`,
@@ -48,7 +48,7 @@ if err != nil {
   log.Fatal(err)
 }
  changedCount, err := vault.ZAdd(
-  "sorted_set",
+  "key",
   map[string]float64{"member1": 2.5, "member2": 1.25, "member3": 3, "member4": 4},
   echovault.ZAddOptions{NX: true},
 )`,
@@ -60,7 +60,7 @@ if err != nil {
   log.Fatal(err)
 }
  changedCount, err := vault.ZAdd(
-  "sorted_set",
+  "key",
   map[string]float64{"member1": 5.75},
   echovault.ZAddOptions{INCR: true},
 )`

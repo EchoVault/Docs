@@ -1,0 +1,22 @@
+# ZCOUNT
+
+<Page
+  syntax={`ZCOUNT key min max`}
+  module={"sortedset"}
+  categories={["sortedset", "read", "slow"]}
+  description={`Returns the number of elements in the sorted set key with scores in the range of min and max.
+If the key does not exist, a count of 0 is returned, otherwise return the count.
+If the key holds a value that is not a sorted set, an error is returned.`}
+  options={[]}
+  examples={{
+    cli: [{description: "", code: `ZCOUNT key 1.25 10.55`}],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+count, err := vault.ZCount("key", 1.25, 10.55)`
+    }]
+  }}
+/>

@@ -1,0 +1,22 @@
+# ZCARD
+
+<Page
+  syntax={`ZCARD key`}
+  module={"sortedset"}
+  categories={["sortedset", "read", "slow"]}
+  description={`Returns the set cardinality of the sorted set at key.
+If the key does not exist, 0 is returned, otherwise the cardinality of the sorted set is returned.
+If the key holds a value that is not a sorted set, this command will return an error.`}
+  options={[]}
+  examples={{
+    cli: [{description: "", code: `ZCARD key`}],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+cardinality, err := vault.ZCard("key")`
+    }]
+  }}
+/>
