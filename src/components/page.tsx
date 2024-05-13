@@ -43,18 +43,19 @@ function Page({
       <div>
         <b>ACL Categories: </b>
         <div id="aclCategoryContainer">
-          {categories.map((category, index) => (
-            <span key={`${category}-${index}`}>
-              <span className="acl-category">{`@${category.toLowerCase()}`}</span>
-            </span>
-          ))}
+          {categories?.length > 0 &&
+            categories.map((category, index) => (
+              <span key={`${category}-${index}`}>
+                <span className="acl-category">{`@${category.toLowerCase()}`}</span>
+              </span>
+            ))}
         </div>
       </div>
       <div>
         <b>Description: </b>
         <p>{description}</p>
       </div>
-      {options.length > 0 && (
+      {options?.length > 0 && (
         <div>
           <b>Options: </b>
           <ul>
