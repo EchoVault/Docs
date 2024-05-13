@@ -1,0 +1,24 @@
+# ZRANK
+
+<Page
+  syntax={`ZRANK key member [WITHSCORE]`}
+  module={"sortedset"}
+  categories={["sortedset", "read", "slow"]}
+  description={`Returns the rank of the specified member in the sorted set. 
+  WITHSCORE modifies the result to also return the score.`}
+  options={[
+    "WITHSCORE - Determines whether to return the score along with the member value."
+  ]}
+  examples={{
+    cli: [{description: "", code: `ZRANK key member WITHSCORE`}],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+member, err := vault.ZRank("key", "member", true)
+`
+    }]
+  }}
+/>
