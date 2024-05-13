@@ -1,0 +1,20 @@
+# HSET
+
+<Page 
+  syntax={`HSET key field value [field value ...]`}
+  module={"hash"}
+  categories={["hash", "write", "fast"]}
+  description={`Set update each field of the hash with the corresponding value.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `HSET key field1 value1 field2 value2` }],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+noOfUpdatedFields, err := vault.HSet("key", map[string]string{"field1": "value1", "field2": "value2"})`
+    }]
+  }}
+/>
