@@ -1,0 +1,21 @@
+# HINCRBY
+
+<Page 
+  syntax={`HINCRBY key field increment`}
+  module={"hash"}
+  categories={["hash", "write", "fast"]}
+  description={`Increment the hash value by the integer increment.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `HINCRBY key field 7` }],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+newValue, err := vault.HIncrBy("key", "field", 7)
+`
+    }]
+  }}
+/>

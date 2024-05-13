@@ -1,0 +1,20 @@
+# HKEYS
+
+<Page 
+  syntax={`HKEYS key`}
+  module={"hash"}
+  categories={["hash", "read", "slow"]}
+  description={`Returns all the fields in a hash.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `HKEYS key` }],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+keys, err := vault.HKeys("key")`
+    }]
+  }}
+/>
