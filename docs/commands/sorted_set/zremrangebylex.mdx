@@ -8,5 +8,15 @@
   options={[]}
   examples={{
     cli: [{description: "", code: `ZREMRANGEBYLEX key aa xx`}],
+    go: [
+      {
+        description: "",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+deletedCount, err := vault.ZRemRangeByLex("key", "aa", "xx")`
+      }
+    ]
   }}
 />
