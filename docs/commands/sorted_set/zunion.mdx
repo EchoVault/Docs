@@ -1,0 +1,52 @@
+# ZUNION
+
+<Page
+  syntax={`ZUNION key [key ...] [WEIGHTS weight [weight ...]] [AGGREGATE <SUM | MIN | MAX>] [WITHSCORES]`}
+  module={"sortedset"}
+  categories={["sortedset", "read", "slow"]}
+  description={`Return the union of the sorted sets in keys. The scores of each member of 
+a sorted set are multiplied by the corresponding weight in WEIGHTS. Aggregate determines how the scores are combined.
+WITHSCORES option determines whether to return the result with scores included.`}
+  options={[
+    `WEIGHTS - A list of floats that determine the weight of each sorted set. The scores of each member 
+    of a sort set are multiplied by the corresponding weight. If weights are not provided, the default weight
+    is 1 for all sorted sets.`,
+    `AGGREGATE - Determines the strategy used to compare the scores of members in the union.
+    SUM will add the scores, MIN will choose the minimum score, and MAX will choose the maximum score.`,
+    `WITHSCORES - Determines whether scores should be included in the resulting sorted set.`
+  ]}
+  examples={{
+    cli: [
+      {
+        description: "Find the union between 2 sorted sets:",
+        code: `ZUNION key1 key2`
+      },
+      {
+        description: "Find the union between 2 sorted sets with a sum of the weighted scores:",
+        code: `ZUNION key1 key2 WEIGHTS 2 4 AGGREGATE SUM WITHSCORES`
+      }
+    ],
+    go: [
+      {
+        description: "Find the union between 2 sorted sets:",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+sortedSet, err := vault.ZUnion([]string{"key1", "key2"}, echovault.ZUnionOptions{})
+`
+      },
+      {
+        description: "Find the union between 2 sorted sets with a sum of the weighted scores:",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+sortedSet, err := vault.ZUnion(
+  []string{"key1", "key2"},
+  echovault.ZUnionOptions{Weights: []float64{2, 4}, Aggregate: "SUM", WithScores: true},
+)`
+      }
+    ]
+  }}
+/>  
