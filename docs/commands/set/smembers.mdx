@@ -1,0 +1,21 @@
+# SMEMBERS
+
+<Page 
+  syntax={`SMEMBERS key`}
+  module={"set"}
+  categories={["set", "read", "slow"]}
+  description={`Returns all members of a set.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `SMEMBERS key` }],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+elements, err := vault.SMembers("key")
+`
+    }]
+  }}
+/>

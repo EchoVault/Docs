@@ -1,0 +1,43 @@
+# SINTERCARD
+
+<Page 
+  syntax={`SINTERCARD key [key...] [LIMIT limit]`}
+  module={"set"}
+  categories={["set", "read", "slow"]}
+  description={`Returns the cardinality of the intersection between multiple sets.`}
+  options={[
+    `LIMIT - limit is an integer which determines the cardinality at which the intersection calculation
+    is terminated.`
+  ]}
+  examples={{
+    cli: [
+      { 
+        description: "Calculate the full intersection cardinality:", 
+        code: `SINTERCARD key1 key2` 
+      },
+      {
+        description: "Calculate the intersection only upto an intersection cardinality of 5:",
+        code: `SINTERCARD key1 key2 LIMIT 5`
+      }
+    ],
+    go: [
+      {
+        description: "Calculate the full intersection cardinality:", 
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+cardinality, err := vault.SInterCard([]string{"key1", "key2"}, 0)
+`
+      },
+      {
+        description: "Calculate the intersection only upto an intersection cardinality of 5:",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+cardinality, err := vault.SInterCard([]string{"key1", "key2"}, 5)`
+      }
+    ]
+  }}
+/>

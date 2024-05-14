@@ -1,0 +1,37 @@
+# SPOP
+
+<Page 
+  syntax={`SPOP key [count]`}
+  module={"set"}
+  categories={["set", "write", "slow"]}
+  description={`Returns and removes one or more random members from the set.`}
+  options={[
+    "count - The number of elements to pop from the set."
+  ]}
+  examples={{
+    cli: [
+      { description: "Pop one element from the set:", code: `SPOP key` },
+      { description: "Pop 5 elements from the set:", code: `SPOP key 5`}
+    ],
+    go: [
+      {
+        description: "Pop one element from the set:",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+elements, err := vault.SPop("key", 1)
+`
+      },
+      {
+        description: "Pop 5 elements from the set:",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+elements, err := vault.SPop("key", 5)
+`
+      }
+    ]
+  }}
+/>

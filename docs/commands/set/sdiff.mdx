@@ -1,0 +1,23 @@
+# SDIFF
+
+<Page 
+  syntax={`SDIFF key [key...]`}
+  module={"set"}
+  categories={["set", "read", "slow"]}
+  description={`Returns the difference between all the sets in the given keys.
+If the first key provided is the only valid set, then this key's set will be returned as the result.
+All keys that are non-existed or hold values that are not sets will be skipped.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `SDIFF key1 key2` }],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+elements, err := vault.SDiff("key1", "key2")
+`
+    }]
+  }}
+/>

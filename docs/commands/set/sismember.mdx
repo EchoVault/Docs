@@ -1,0 +1,21 @@
+# SISMEMBER
+
+<Page 
+  syntax={`SISMEMBER key member`}
+  module={"set"}
+  categories={["set", "read", "fast"]}
+  description={`Returns if member is contained in the set.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `SISMEMBER key member` }],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+ok, err := vault.SisMember("key", "memeber")
+`
+    }]
+  }}
+/>

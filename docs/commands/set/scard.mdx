@@ -1,0 +1,21 @@
+# SCARD
+
+<Page 
+  syntax={`SCARD key`}
+  module={"set"}
+  categories={["set", "read", "fast"]}
+  description={`Returns the cardinality of the set.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `SCARD key` }],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+cardinality, err := vault.SCard("key")
+`
+    }]
+  }}
+/>

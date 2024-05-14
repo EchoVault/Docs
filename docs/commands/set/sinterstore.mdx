@@ -1,0 +1,21 @@
+# SINTERSTORE
+
+<Page 
+  syntax={`SINTERSTORE destination key [key...]`}
+  module={"set"}
+  categories={["set", "write", "slow"]}
+  description={`Stores the intersection of multiple sets at the destination key.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `SINTERSTORE destination key1 key2` }],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+cardinality, err := vault.SInterStore("destination", "key1", "key2")
+`
+    }]
+  }}
+/>

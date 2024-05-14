@@ -1,0 +1,21 @@
+# SADD
+
+<Page 
+  syntax={`SADD key member [member...]`}
+  module={"set"}
+  categories={["set", "write", "fast"]}
+  description={`Add one or more members to the set. If the set does not exist, it's created.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `SADD key member1 member2` }],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+cardinality, err := vault.SAdd("key", "member1", "member2")
+`
+    }]
+  }}
+/>
