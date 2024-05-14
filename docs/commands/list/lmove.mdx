@@ -1,0 +1,27 @@
+# LMOVE
+
+<Page 
+  syntax={`LMOVE source destination <LEFT | RIGHT> <LEFT | RIGHT>`}
+  module={"list"}
+  categories={["list", "write", "slow"]}
+  description={`Move element from one list to the other specifying left/right for both lists. 
+  LEFT represents the start of a list. RIGHT represents the end of a list.`}
+  options={[]}
+  examples={{
+    cli: [
+      { 
+        description: "Move an element from the beginning of the source list to the end of the destination list:", 
+        code: `LMOVE source destination LEFT RIGHT` 
+      }
+    ],
+    go: [{
+      description: "Move an element from the beginning of the source list to the end of the destination list:",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+ok, err := vault.LMove("source", "destination", "LEFT", "RIGHT")
+`
+    }]
+  }}
+/>
