@@ -1,0 +1,22 @@
+# LASTSAVE
+
+<Page 
+  syntax={`LASTSAVE`}
+  module={"admin"}
+  categories={["admin", "fast", "dangerous"]}
+  description={`Get unix timestamp for the latest snapshot in milliseconds.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `LASTSAVE` }],
+    go: [
+      {
+        description: "",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+count, err := vault.LastSave()`
+      }
+    ]
+  }}
+/>

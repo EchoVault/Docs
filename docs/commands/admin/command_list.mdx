@@ -1,0 +1,68 @@
+# COMMAND LIST
+
+<Page 
+  syntax={`COMMAND LIST [FILTERBY <ACLCAT category | PATTERN pattern | MODULE module>]`}
+  module={"admin"}
+  categories={["admin", "slow"]}
+  description={`Get the list of command names. Allows for filtering by ACL category or glob pattern.`}
+  options={[
+    `FILTERBY - An optional condition used to filter the response. ACLCAT filters by the provided acl
+    category string. PATTERN filters the response by the provided glob pattern. 
+    MODULE filters the response by the provided EchoVault module.`
+  ]}
+  examples={{
+    cli: [
+      { 
+        description: "Get a list of all the loaded commands:", 
+        code: `COMMAND LIST` 
+      },
+      { 
+        description: "Get a list of all commands with the \"fast\" ACL category:", 
+        code: `COMMAND LIST FILTERBY ACLCAT fast` 
+      },
+      { 
+        description: "Get a list of all commands which satisfy the \"z*\" glob pattern:", 
+        code: `COMMAND LIST FILTERBY PATTERN z*` 
+      },
+      { 
+        description: "Get a list of all the commands in the \"set\" module:", 
+        code: `COMMAND LIST FILTERBY MODULE set` 
+      },
+    ],
+    go: [
+      {
+        description: "Get a list of all the loaded commands:", 
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+commands, err := vault.CommandList(echovault.CommandListOptions{})
+`
+      },
+      {
+        description: "Get a list of all commands with the \"fast\" ACL category:", 
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+commands, err := vault.CommandList(echovault.CommandListOptions{ACLCAT: "fast"})`
+      },
+      {
+        description: "Get a list of all commands which satisfy the \"z*\" glob pattern:", 
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+commands, err := vault.CommandList(echovault.CommandListOptions{PATTERN: "z*"})`
+      },
+      {
+        description: "Get a list of all the commands in the \"set\" module:", 
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+commands, err := vault.CommandList(echovault.CommandListOptions{MODULE: "set"})`
+      },
+    ]
+  }}
+/>

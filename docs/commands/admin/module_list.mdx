@@ -1,0 +1,22 @@
+# MODULE LIST
+
+<Page 
+  syntax={`MODULE LIST`}
+  module={"admin"}
+  categories={["admin", "slow", "dangerous"]}
+  description={`List all the modules that are currently loaded in the server.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `MODULE LIST` }],
+    go: [
+      {
+        description: "",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+modules := server.ListModules()`
+      }
+    ]
+  }}
+/>

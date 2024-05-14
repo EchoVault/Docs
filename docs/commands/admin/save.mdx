@@ -1,0 +1,22 @@
+# SAVE
+
+<Page 
+  syntax={`SAVE`}
+  module={"admin"}
+  categories={["admin", "slow", "dangerous"]}
+  description={`Trigger a snapshot save.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `SAVE` }],
+    go: [
+      {
+        description: "",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+count, err := vault.Save()`
+      }
+    ]
+  }}
+/>

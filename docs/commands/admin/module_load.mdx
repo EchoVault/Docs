@@ -1,0 +1,43 @@
+# MODULE LOAD
+
+<Page 
+  syntax={`MODULE LOAD path [arg [arg ...]]`}
+  module={"admin"}
+  categories={["admin", "slow", "dangerous"]}
+  description={`Load a module from a dynamic library at runtime. 
+The path should be the full path to the module, including the .so filename. Any args will be be passed unmodified to the
+module's key extraction and handler functions.`}
+  options={[]}
+  examples={{
+    cli: [
+      { 
+        description: "Load a module with no args:", 
+        code: `MODULE LOAD path/to/module.so` 
+      },
+      {
+        description: "Load a moduel with a few args:",
+        code: `MODULE LOAD path/to/module.so arg1 arg2 arg3`
+      }
+    ],
+    go: [
+      {
+        description: "Load a module with no args:", 
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+err := server.LoadModule("/path/to/module.so")
+`
+      },
+      {
+        description: "Load a moduel with a few args:", 
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+err := server.LoadModule("/path/to/module.so", "arg1", "arg2", "arg3")
+`
+      },
+    ]
+  }}
+/>

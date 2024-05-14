@@ -1,0 +1,22 @@
+# COMMAND COUNT
+
+<Page 
+  syntax={`COMMAND COUNT`}
+  module={"admin"}
+  categories={["admin", "slow"]}
+  description={`Get the dumber of commands in the echovault instance.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `COMMAND COUNT` }],
+    go: [
+      {
+        description: "",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+count, err := vault.CommandCount()`
+      }
+    ]
+  }}
+/>
