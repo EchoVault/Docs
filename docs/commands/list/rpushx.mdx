@@ -1,0 +1,21 @@
+# RPUSHX
+
+<Page 
+  syntax={`RPUSHX key element [element ...]`}
+  module={"list"}
+  categories={["list", "write", "fast"]}
+  description={`Prepends a value to the end of a list only if the list exists.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `RPUSHX key element1 element2` }],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+length, err := vault.RPushX("key", "element1", "element2")
+`
+    }]
+  }}
+/>
