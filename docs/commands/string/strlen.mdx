@@ -1,0 +1,21 @@
+# STRLEN
+
+<Page 
+  syntax={`STRLEN key`}
+  module={"string"}
+  categories={["string", "read", "fast"]}
+  description={`Returns length of the key's value if it's a string.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `STRLEN key` }],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+length, err := vault.StrLen("key")
+`
+    }]
+  }}
+/>
