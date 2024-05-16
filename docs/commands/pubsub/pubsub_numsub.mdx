@@ -1,0 +1,42 @@
+# PUBSUB NUMSUB
+
+<Page 
+  syntax={`PUBSUB NUMSUB [channel [channel ...]]`}
+  module={"pubsub"}
+  categories={["pubsub", "slow"]}
+  description={`Return an array of arrays containing the provided
+channel name and how many clients are currently subscribed to the channel.`}
+  options={[]}
+  examples={{
+    cli: [
+      { 
+        description: "Return subscription stats for all channels:", 
+        code: `PUBSUB NUMSUB` 
+      },
+      {
+        description: "Return subscription stats for specific channels:",
+        code: `PUBSUB NUMSUB channel1 channel2`
+      }
+    ],
+    go: [
+      {
+        description: "Return subscription stats for all channels:",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+stats, err := server.PubSubNmSub()
+`
+      },
+      {
+        description: "Return subscription stats for specific channels:",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+stats, err := server.PubSubNmSub("channel1", "channel2")
+`
+      }
+    ]
+  }}
+/>

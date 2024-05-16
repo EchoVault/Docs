@@ -1,0 +1,23 @@
+# ACL LIST
+
+<Page 
+  syntax={`ACL LIST`}
+  module={"acl"}
+  categories={["admin", "slow", "dangerous"]}
+  description={`Dumps effective acl rules in ACL DSL format.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `ACL LIST` },
+    ],
+    go: [
+      { 
+        description: "",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+rules, err := vault.ACLList()`
+      }
+    ]
+  }}
+/>

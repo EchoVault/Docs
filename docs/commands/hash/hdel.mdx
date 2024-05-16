@@ -1,0 +1,20 @@
+# HDEL
+
+<Page 
+  syntax={`HDEL key field [field ...]`}
+  module={"hash"}
+  categories={["hash", "write", "fast"]}
+  description={`Deletes the specified fields from the hash.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `HDEL key field1 field2` }],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+deletedCount, err := vault.HDel("key", "field1", "field2")`
+    }]
+  }}
+/>

@@ -1,0 +1,27 @@
+# PUBSUB CHANNELS
+
+<Page 
+  syntax={`PUBSUB CHANNELS [pattern]`}
+  module={"pubsub"}
+  categories={["pubsub", "slow"]}
+  description={`Returns an array containing the list of channels that
+match the given pattern. If no pattern is provided, all active channels are returned. Active channels are 
+channels with 1 or more subscribers.`}
+  options={[]}
+  examples={{
+    cli: [
+      { description: "", code: `PUBSUB CHANNELS channel*` },
+    ],
+    go: [
+      {
+        description: "",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+channels, err := vault.PubSubChannels("channel*")
+`
+      }
+    ]
+  }}
+/>

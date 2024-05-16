@@ -1,0 +1,21 @@
+# HINCRBYFLOAT
+
+<Page 
+  syntax={`HINCRBYFLOAT key field increment`}
+  module={"hash"}
+  categories={["hash", "write", "fast"]}
+  description={`Increment the hash value by the float increment.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `HINCRBYFLOAT key field 7.75` }],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+newValue, err := vault.HIncrByFloat("key", "field", 7.75)
+`
+    }]
+  }}
+/>

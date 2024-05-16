@@ -1,0 +1,70 @@
+# ZADD
+
+<Page
+  syntax={`ZADD key [NX | XX] [GT | LT] [CH] [INCR] score member [score member...]`}
+  module={"sortedset"}
+  categories={["sortedset", "write", "fast"]}
+  description={`Adds all the specified members with the specified scores to the sorted set at the key.`}
+  options={[
+  "NX - only adds the member if it currently does not exist in the sorted set.",
+  "XX - only updates the scores of members that exist in the sorted set.",
+  "GT - only updates the score if the new score is greater than the current score.",
+  "LT - only updates the score if the new score is less than the current score.",
+  "CH - modifies the result to return total number of members changed + added, instead of only new members added.",
+  "INCR - modifies the command to act like ZINCRBY, only one score/member pair can be specified in this mode."
+  ]}
+  examples={{
+    cli: [
+      {
+        description: "Add elements to sorted set:",
+        code: `ZADD key 2.5 member1 1.25 member2 3 member3`
+      },
+      {
+        description: "Add elements to sorted set, skipping members that already exist in the set:",
+        code: `ZADD key NX 2.5 member1 1.25 member2 3 member3 4 member4`
+      },
+      {
+        description: "Increment the element by the specified score:",
+        code: `ZADD key INCR 5.75 member1`
+      }
+    ],
+    go: [
+      {
+        description: "Add elements to sorted set:",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+ changedCount, err := vault.ZAdd(
+  "key",
+  map[string]float64{"member1": 2.5, "member2": 1.25, "member3": 3},
+  echovault.ZAddOptions{},
+)`,
+      },
+      {
+        description: "Add elements to sorted set, skipping members that already exist in the set:",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+ changedCount, err := vault.ZAdd(
+  "key",
+  map[string]float64{"member1": 2.5, "member2": 1.25, "member3": 3, "member4": 4},
+  echovault.ZAddOptions{NX: true},
+)`,
+      },
+      {
+        description: "Increment the element by the specified score:",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+ changedCount, err := vault.ZAdd(
+  "key",
+  map[string]float64{"member1": 5.75},
+  echovault.ZAddOptions{INCR: true},
+)`
+      }
+    ],
+  }}
+/>

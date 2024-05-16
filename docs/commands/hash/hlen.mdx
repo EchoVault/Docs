@@ -1,0 +1,20 @@
+# HLEN
+
+<Page 
+  syntax={`HLEN key`}
+  module={"hash"}
+  categories={["hash", "read", "fast"]}
+  description={`Returns the number of fields in the hash.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `HLEN key` }],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+length, err := vault.HLen("key")`
+    }]
+  }}
+/>

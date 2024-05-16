@@ -1,0 +1,49 @@
+# SRANDMEMBER
+
+<Page 
+  syntax={`SRANDMEMBER key [count]`}
+  module={"set"}
+  categories={["set", "read", "slow"]}
+  description={`Returns one or more random members from the set without removing them.`}
+  options={[
+    `count - The number of elements to retrieve from the set. If the count is negative the returned
+    elements list could contain duplicate elements. If the count is positive, then returned random
+    elements will be unique.`
+  ]}
+  examples={{
+    cli: [
+      { description: "Return one random element from the set:", code: `SRANDMEMBER key` },
+      { description: "Return 5 unique random elements from the set:", code: `SRANDMEMBER key 5`},
+      { description: "Return 5 random elements from the set allowing duplicates:", code: `SRANDMEMBER key -5`}
+    ],
+    go: [
+      {
+        description: "Return one random element from the set:",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+elements, err := vault.SRandMember("key", 1)
+`
+      },
+      {
+        description: "Return 5 unique random elements from the set:",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+elements, err := vault.SRandMember("key", 5)
+`
+      },
+       {
+        description: "Return 5 random elements from the set allowing duplicates:",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+elements, err := vault.SRandMember("key", -5)
+`
+      }
+    ]
+  }}
+/>

@@ -1,0 +1,22 @@
+# REWRITEAOF
+
+<Page 
+  syntax={`REWRITEAOF`}
+  module={"admin"}
+  categories={["admin", "slow", "dangerous"]}
+  description={`Trigger re-writing of append process.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `REWRITEAOF` }],
+    go: [
+      {
+        description: "",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+count, err := vault.RewriteAOF()`
+      }
+    ]
+  }}
+/>

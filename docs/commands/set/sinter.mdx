@@ -1,0 +1,21 @@
+# SINTER
+
+<Page 
+  syntax={`SINTER key [key...]`}
+  module={"set"}
+  categories={["set", "read", "slow"]}
+  description={`Returns the intersection of multiple sets.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `SINTER key1 key2` }],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+elements, err := vault.SInter("key1", "key2")
+`
+    }]
+  }}
+/>

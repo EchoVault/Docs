@@ -1,0 +1,21 @@
+# ZREM
+
+<Page
+  syntax={`ZREM key member [member ...]`}
+  module={"sortedset"}
+  categories={["sortedset", "write", "fast"]}
+  description={`Removes the listed members from the sorted set. Returns the number of elements removed.`}
+  options={[]}
+  examples={{
+    cli: [{description: "", code: `ZREM key member1 member2`}],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+deletedCount, err := vault.ZRem("key", "member1", "member2")
+`
+    }]
+  }}
+/>

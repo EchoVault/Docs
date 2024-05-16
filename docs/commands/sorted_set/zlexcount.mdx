@@ -1,0 +1,23 @@
+# ZLEXCOUNT
+
+<Page
+  syntax={`ZLEXCOUNT key min max`}
+  module={"sortedset"}
+  categories={["sortedset", "read", "slow"]}
+  description={`Returns the number of elements in within the sorted set within the 
+lexicographical range between min and max. Returns 0, if the keys does not exist or if all the members do not have
+the same score. If the value held at key is not a sorted set, an error is returned.`}
+  options={[]}
+  examples={{
+    cli: [{description: "", code: `ZLEXCOUNT key aa xx`}],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+count, err := vault.ZLexCount("key", "aa", "xx")
+`
+    }]
+  }}
+/>

@@ -1,0 +1,68 @@
+# EXPIRE
+
+<Page
+  syntax={`EXPIRE key seconds [NX | XX | GT | LT]`}
+  module={"generic"}
+  categories={['keyspace', 'write', 'fast']}
+  description={`Expire the key in the specified number of seconds. This commands turns a key into a volatile one.`}
+  options={[
+    "NX - Only set the expiry time if the key has no associated expiry.",
+    "XX - Only set the expiry time if the key already has an expiry time.",
+    "GT - Only set the expiry time if the new expiry time is greater than the current one.",
+    "LT - Only set the expiry time if the new expiry time is less than the current one.",
+  ]}
+  examples={{
+    cli: [
+      {
+        description: "Add an expiration to a key:", 
+        code: `EXPIRE key 10`
+      },
+      {
+        description: "Add an expiration to a key only if it does not have one already:",
+        code: `EXPIRE key 10 NX`,
+      },
+      {
+        description: "Add an expiration to a key only if it has one already:",
+        code: `EXPIRE key 10 XX`,
+      },
+      {
+        description: "Add an expiration to a key only if it already has one that is less than the current expiry:",
+        code: `EXPIRE key 10 XX LT`,
+      }
+    ],
+    go: [
+    {
+        description: "Add an expiration to a key:", 
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+ok, err := vault.Expire("key", 10, echovault.ExpireOptions{})`
+      },
+      {
+        description: "Add an expiration to a key only if it does not have one already:",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+ok, err := vault.Expire("key", 10, echovault.ExpireOptions{NX: true})`,
+      },
+      {
+        description: "Add an expiration to a key only if it has one already:",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+ok, err := vault.Expire("key", 10, echovault.ExpireOptions{XX: true})`,
+      },
+      {
+        description: "Add an expiration to a key only if it already has one that is less than the current expiry:",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+ok, err := vault.Expire("key", 10, echovault.ExpireOptions{XX: true, LT: true})`,
+      }
+    ]
+  }}
+/>

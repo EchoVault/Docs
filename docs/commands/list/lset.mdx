@@ -1,0 +1,21 @@
+# LSET
+
+<Page 
+  syntax={`LSET key index element`}
+  module={"list"}
+  categories={["list", "write", "fast"]}
+  description={`Sets the value of an element in a list by its index.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `LSET key 2 element` }],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+ok, err := vault.LSet("key", 2, "element")
+`
+    }]
+  }}
+/>

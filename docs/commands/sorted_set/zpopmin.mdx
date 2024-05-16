@@ -1,0 +1,22 @@
+# ZPOPMIN
+
+<Page
+  syntax={`ZPOPMIN key [count]`}
+  module={"sortedset"}
+  categories={["sortedset", "write", "slow"]}
+  description={`Removes and returns 'count' number of members in the sorted set with the lowest scores. 
+Default count is 1.`}
+  options={[]}
+  examples={{
+    cli: [{description: "", code: `ZPOPMIN key 2`}],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+members, err := vault.ZPopMin("key", 2)
+`
+    }]
+  }}
+/>

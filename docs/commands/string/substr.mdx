@@ -1,0 +1,21 @@
+# SUBSTR
+
+<Page 
+  syntax={`SUBSTR key start end`}
+  module={"string"}
+  categories={["string", "read", "slow"]}
+  description={`Returns a substring from the string value.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `SUBSTR key 4 10` }],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+length, err := vault.SubStr("key", 4, 10)
+`
+    }]
+  }}
+/>

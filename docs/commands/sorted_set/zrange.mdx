@@ -1,0 +1,39 @@
+# ZRANGE
+
+<Page
+  syntax={`ZRANGE key start stop [BYSCORE | BYLEX] [REV] [LIMIT offset count] [WITHSCORES]`}
+  module={"sortedset"}
+  categories={["sortedset", "read", "slow"]}
+  description={`Returns the range of elements in the sorted set.`}
+  options={[
+    `BYSCORE - Sorts the elements in accending order of score before calculating the range.`,
+    `BYLEX - Sorts the elements in ascending lexicographical order before calcularing the range.
+    This option only works if all the members have the same score.`,
+    `REV - Reverse the order determined by BYSCORE or BYLEX.`,
+    `LIMIT - Offset determines where EchoVault will start counting from after the previous modification.
+    Count is the number of elements to extract after the offset.`,
+    `WITHSCORES - Whether the result should include scores.`
+  ]}
+  examples={{
+    cli: [
+      {
+        description: "Get range by score", 
+        code: `ZRANGE key 11.55 15.66 BYSCORE REV LIMIT 0 2 WITHSCORES`
+      }
+    ],
+    go: [{
+      description: "Get range by score",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+sortedSet, err := vault.ZRange("key", "11.55", "15.66", echovault.ZRangeOptions{
+  ByScore:    true,
+  Rev:        true,
+  WithScores: true,
+  Offset:     0,
+  Count:      2,
+})`
+    }]
+  }}
+/>

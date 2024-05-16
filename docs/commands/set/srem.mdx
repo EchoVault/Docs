@@ -1,0 +1,21 @@
+# SREM
+
+<Page
+  syntax={`SREM key member [member...]`}
+  module={"set"}
+  categories={["set", "write", "fast"]}
+  description={`Remove one or more members from a set.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `SREM key member1 member2` }],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+deletedCount, err := vault.SRem("key", "member1", "member2")
+`
+    }]
+  }}
+/>

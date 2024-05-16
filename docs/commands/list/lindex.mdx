@@ -1,0 +1,21 @@
+# LINDEX
+
+<Page 
+  syntax={`LINDEX key index`}
+  module={"list"}
+  categories={["list", "read", "fast"]}
+  description={`Returns the list element at the given index.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `LINDEX key 2` }],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+element, err := vault.LIndex("key", 2)
+`
+    }]
+  }}
+/>

@@ -1,0 +1,40 @@
+# SUBSCRIBE
+
+<Page 
+  syntax={`SUBSCRIBE channel [channel ...]`}
+  module={"pubsub"}
+  categories={["pubsub", "connection", "slow"]}
+  description={`Subscribe to one or more channels.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `SUBSCRIBE channel1 channel2` }],
+    go: [
+      { 
+        description: `The Subscribe method returns a readMessage function.
+        This method is lazy so it must be invoked each time the you want to read the next message from
+        the channel.` 
+      },
+      {
+        description: `When subscribing to an'N' number of channels, the first N messages will be
+        the subscription confimations.`
+      },
+      {
+        description: `The readMessage functions returns a message object when called. The message
+        object is a string slice with the following inforamtion: 
+        event type at index 0 (e.g. subscribe, message), channel name at index 1,
+        message/subscription index at index 2.`
+      },
+      {
+        description: "",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+readMessage := vault.Subscribe("subscribe_tag_1", "channel1", "channel2") // Return lazy readMessage function
+for i := 0; i < 2; i++ {
+  message := readMessage() // Call the readMessage function for each channel subscription.
+}`
+      }
+    ]
+  }}
+/>

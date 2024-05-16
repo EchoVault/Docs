@@ -1,0 +1,22 @@
+# MODULE UNLOAD
+
+<Page 
+  syntax={`MODULE UNLOAD name`}
+  module={"admin"}
+  categories={["admin", "slow", "dangerous"]}
+  description={`Unloads a module based on the its name as displayed by the MODULE LIST command.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `MODULE UNLOAD module-name` }],
+    go: [
+      {
+        description: "",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+vault.UnloadModule()`
+      }
+    ]
+  }}
+/>

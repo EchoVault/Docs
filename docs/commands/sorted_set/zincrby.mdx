@@ -1,0 +1,21 @@
+# ZINCRBY
+
+<Page
+  syntax={`ZINCRBY key increment member`}
+  module={"sortedset"}
+  categories={["sortedset", "write", "fast"]}
+  description={`Increments the score of the specified sorted set's member by the increment. If the member does not exist, it is created.
+If the key does not exist, it is created with new sorted set and the member added with the increment as its score.`}
+  options={[]}
+  examples={{
+    cli: [{description: "", code: `ZINCRBY key 2.55 member1`}],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+cardinality, err := vault.ZIncrBy("key", 2.55, "member1")`
+    }]
+  }}
+/>

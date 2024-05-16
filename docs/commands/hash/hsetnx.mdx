@@ -1,0 +1,20 @@
+# HSET
+
+<Page 
+  syntax={`HSETNX key field value [field value ...]`}
+  module={"hash"}
+  categories={["hash", "write", "fast"]}
+  description={`Set hash field value only if the field does not exist.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `HSETNX key field1 value1 field2 value2` }],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+noOfUpdatedFields, err := vault.HSetNX("key", map[string]string{"field1": "value1", "field2": "value2"})`
+    }]
+  }}
+/>

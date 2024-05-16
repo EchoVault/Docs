@@ -1,0 +1,20 @@
+# HEXISTS
+
+<Page 
+  syntax={`HEXISTS key field`}
+  module={"hash"}
+  categories={["hash", "read", "fast"]}
+  description={`Returns if field is an existing field in the hash.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `HEXISTS key field1` }],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+exists, err := vault.HExists("key", "field1")`
+    }]
+  }}
+/>

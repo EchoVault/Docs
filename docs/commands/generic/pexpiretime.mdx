@@ -1,0 +1,24 @@
+# PEXPIRETIME
+
+<Page
+  syntax={`PEXPIRETIME key`}
+  module={"generic"}
+  categories={['keyspace', 'read', 'fast']}
+  description={`Returns the absolute unix time in milliseconds when the key will expire.
+Return -1 if the key exists but has no associated expiry time.
+Returns -2 if the key does not exist.`}
+  options={[]}
+  examples={{
+    cli: [{description: "", code: `PEXPIRETIME key`}],
+    go: [
+      {
+        description: "",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+pexpireTime, err := vault.PExpireTime("key")`
+      }
+    ],
+  }}
+/>

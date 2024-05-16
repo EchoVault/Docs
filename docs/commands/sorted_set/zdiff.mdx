@@ -1,0 +1,41 @@
+# ZDIFF
+
+<Page
+  syntax={`ZDIFF key [key...] [WITHSCORES]`}
+  module={"sortedset"}
+  categories={["sortedset", "read", "slow"]}
+  description={`Computes the difference between all the sorted sets specified in the list of keys and returns the result.`}
+  options={[
+    "WITHSCORES - Whether the returned sorted set should include scores"
+  ]}
+  examples={{
+    cli: [
+      {
+        description: "Get the difference between 2 sorted sets:", 
+        code: `ZDIFF key1 key2`
+      },
+      {
+        description: "Get the difference between 2 sorted sets and include the scores:",
+        code: `ZDIFF key1 key2 WITHSCORES`
+      }
+    ],
+    go: [
+    {
+      description: "Get the difference between 2 sorted sets:",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+sortedSet, err := vault.ZDiff(false, "key1", "key2")`
+    },
+    {
+      description: "Get the difference between 2 sorted sets and include the scores:",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+sortedSet, err := vault.ZDiff(true, "key1", "key2")`
+    },
+    ]
+  }}
+/>

@@ -1,0 +1,26 @@
+# LREM
+
+<Page 
+  syntax={`LREM key count element`}
+  module={"list"}
+  categories={["list", "write", "slow"]}
+  description={`Remove <count> elements from list.`}
+  options={[]}
+  examples={{
+    cli: [
+      { 
+        description: "Remove 2 instances if \"value1\" from the list at key:", 
+        code: `LREM key 2 value1` 
+      }
+    ],
+    go: [{
+      description: "Remove 2 instances if \"value1\" from the list at key:",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+ok, err := vault.Lrem("key", 2, "value1")
+`
+    }]
+  }}
+/>

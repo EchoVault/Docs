@@ -5,7 +5,6 @@
  */
 
 
-
 /* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #9a9a9a;
@@ -42,3 +41,81 @@
 .home img {
   float: right;
 }
+
+#commandPageContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#aclCategoryContainer {
+  display: inline-flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+.acl-category {
+  padding: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-weight: bold;
+  /* Special styles for acl category badges (default) */
+  background-color: black;
+  color: white;
+}
+
+[data-theme="dark"] .acl-category {
+  padding: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-weight: bold;
+  /* Special styles for acl category badges (dark) */
+  background-color: white;
+  color: black;
+}
+
+#commandExampleContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#commandExampleTabHeader{
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.command-example-tab {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.command-example-tab.active {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  /* Special styles for active tabs (default) */
+  background-color: black;
+  color: white;
+}
+
+[data-theme="dark"] .command-example-tab.active {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  /* Special styles for active tabs (dark) */
+  background-color: white;
+  color: black;
+}
+

@@ -1,0 +1,21 @@
+# LPUSH
+
+<Page 
+  syntax={`LPUSH key element [element ...]`}
+  module={"list"}
+  categories={["list", "write", "fast"]}
+  description={`Prepends one or more values to the beginning of a list, creates the list if it does not exist.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `LPUSH key element1 element2` }],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+length, err := vault.LPush("key", "element1", "element2")
+`
+    }]
+  }}
+/>

@@ -1,0 +1,21 @@
+# SMOVE
+
+<Page 
+  syntax={`SMOVE source destination member`}
+  module={"set"}
+  categories={["set", "write", "fast"]}
+  description={`Moves a member from source set to destination set.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `SMOVE source destination member` }],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+moved, err := vault.SMove("source", "destination", "member")
+`
+    }]
+  }}
+/>

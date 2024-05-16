@@ -1,0 +1,21 @@
+# SADD
+
+<Page 
+  syntax={`SMISMEMBER key member [member...]`}
+  module={"set"}
+  categories={["set", "read", "fast"]}
+  description={`Returns if multiple members are in the set.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `SMISMEMBER key member1 member2` }],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+isMemberSlice, err := vault.SMisMember("key", "member1", "member2")
+`
+    }]
+  }}
+/>

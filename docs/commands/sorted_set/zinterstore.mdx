@@ -1,0 +1,52 @@
+# ZINTERSTORE
+
+<Page
+  syntax={`ZINTERSTORE destination key [key ...] [WEIGHTS weight [weight ...]] [AGGREGATE <SUM | MIN | MAX>] [WITHSCORES]`}
+  module={"sortedset"}
+  categories={["sortedset", "write", "slow"]}
+  description={`Computes the intersection of the sets in the keys, with weights, aggregate and scores. 
+  The result is stored in destination.`}
+  options={[
+    `WEIGHTS - A list of floats that determine the weight of each sorted set. The scores of each member 
+    of a sort set are multiplied by the corresponding weight. If weights are not provided, the default weight
+    is 1 for all sorted sets.`,
+    `AGGREGATE - Determines the strategy used to compare the scores of members in the intersection.
+    SUM will add the scores, MIN will choose the minimum score, and MAX will choose the maximum score.`,
+    `WITHSCORES - Determines whether scores should be included in the resulting sorted set.`
+  ]}
+  examples={{
+    cli: [
+      {
+        description: "Store the intersection between 2 sorted sets:",
+        code: `ZINTERSTORE destination key1 key2`
+      },
+      {
+        description: "Store the intersection between 2 sorted sets with a sum of the weighted scores:",
+        code: `ZINTERSTORE destination key1 key2 WEIGHTS 2 4 AGGREGATE SUM WITHSCORES`
+      }
+    ],
+    go: [
+      {
+        description: "Store the intersection between 2 sorted sets:",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+cardinality, err := vault.ZInterStore("destination", []string{"key1", "key2"}, echovault.ZInterStoreOptions{})
+`
+      },
+      {
+        description: "Store the intersection between 2 sorted sets with a sum of the weighted scores:",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+cardinality, err := vault.ZInterStore(
+  "destination",
+  []string{"key1", "key2"},
+  echovault.ZInterStoreOptions{Weights: []float64{2, 4}, Aggregate: "SUM", WithScores: true},
+)`
+      }
+    ]
+  }}
+/>  

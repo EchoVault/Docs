@@ -1,0 +1,22 @@
+# GET
+
+<Page
+  syntax={`GET key`}
+  module={"generic"}
+  categories={['read', 'fast']}
+  description={`Get the value at the specified key.`}
+  options={[]}
+  examples={{
+    cli: [{description: "", code: `GET key`}],
+    go: [
+      {
+        description: "",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+value, err := vault.Get("key")`
+      }
+    ],
+  }}
+/>

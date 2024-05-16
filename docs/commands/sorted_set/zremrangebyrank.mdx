@@ -1,0 +1,23 @@
+# ZREMRANGEBYRANK
+
+<Page
+  syntax={`ZREMRANGEBYRANK key min max`}
+  module={"sortedset"}
+  categories={["sortedset", "write", "slow"]}
+  description={`Removes the elements in the rank range between start and stop.
+The elements are ordered from lowest score to highest score.`}
+  options={[]}
+  examples={{
+    cli: [{description: "", code: `ZREMRANGEBYRANK key 3 7`}],
+    go: [
+      {
+        description: "",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+deletedCount, err := vault.ZRemRangeByRank("key", 3, 7)`
+      }
+    ]
+  }}
+/>

@@ -1,0 +1,28 @@
+# ACL USERS
+
+<Page 
+  syntax={`ACL USERS`}
+  module={"acl"}
+  categories={["admin", "slow", "dangerous"]}
+  description={`Lists all usernames of the configured ACL users.`}
+  options={[]}
+  examples={{
+    cli: [
+      {
+        description: "",
+        code: `ACL USERS`
+      },
+    ],
+    go: [
+      {
+        description: "",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+users, err := vault.ACLUsers()
+`
+      }
+    ]
+  }}
+/>

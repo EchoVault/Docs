@@ -1,0 +1,21 @@
+# LLEN
+
+<Page 
+  syntax={`LLEN key`}
+  module={"list"}
+  categories={["list", "read", "fast"]}
+  description={`Returns the length of a list.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `LLEN key` }],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+length, err := vault.LLen("key")
+`
+    }]
+  }}
+/>

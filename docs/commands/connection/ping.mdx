@@ -1,0 +1,23 @@
+# PING
+
+<Page 
+  syntax={`PING [message]`}
+  module={"connection"}
+  categories={["connection", "fast"]}
+  description={`(PING [message]) 
+Ping the echovault server. If a message is provided, the message will be echoed back to the client.
+Otherwise, the server will return "PONG".`}
+  options={[]}
+  examples={{
+    cli: [
+      { 
+        description: "Ping without message (returns PONG):", 
+        code: `PING`
+      },
+      {
+        description: "Ping with message (returns \"Hello, world!\")",
+        code: `PING "Hello, world!"`
+      }
+    ],
+  }}
+/>

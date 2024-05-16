@@ -1,0 +1,25 @@
+# ACL SAVE
+
+<Page
+  syntax={`ACL SAVE`}
+  module={"acl"}
+  categories={["admin", "slow", "dangerous"]}
+  description={`Saves the effective ACL rules the configured ACL config file.
+The save command overwrites the current ACL config file entirely and using the current
+in-memory ACL configuration.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `ACL SAVE` }],
+    go: [
+      { 
+        description: "",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+ok, err := server.ACLSave()
+`
+      }
+    ]
+  }}
+/>

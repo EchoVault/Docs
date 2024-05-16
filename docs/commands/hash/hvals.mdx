@@ -1,0 +1,20 @@
+# HVALS
+
+<Page 
+  syntax={`HVALS key`}
+  module={"hash"}
+  categories={["hash", "read", "slow"]}
+  description={`Returns all the values of the hash at key.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `HVALS key` }],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+values, err := vault.HVals("key")`
+    }]
+  }}
+/>

@@ -1,0 +1,24 @@
+# ZMPOP
+
+<Page
+  syntax={`ZMPOP key [key ...] <MIN | MAX> [COUNT count]`}
+  module={"sortedset"}
+  categories={["sortedset", "write", "slow"]}
+  description={`Pop a 'count' elements from multiple sorted sets. 
+  MIN or MAX determines whether to pop elements with the lowest or highest scores respectively.`}
+  options={[
+    "COUNT - Determines the number of elements to pop. The default is 1."
+  ]}
+  examples={{
+    cli: [{description: "", code: `ZMPOP key1 key2 MIN COUNT 2`}],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+sortedSets, err := vault.ZMPop([]string{"key1", "key2"}, echovault.ZMPopOptions{Min: true, Count: 2})
+`
+    }]
+  }}
+/>

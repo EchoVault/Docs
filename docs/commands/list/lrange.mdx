@@ -1,0 +1,21 @@
+# LRANGE
+
+<Page 
+  syntax={`LRANGE key start end`}
+  module={"list"}
+  categories={["list", "read", "slow"]}
+  description={`Return a range of elements between the given indices.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `LRANGE key 2 6` }],
+    go: [{
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+list, err := vault.LRange("key", 2, 6)
+`
+    }]
+  }}
+/>

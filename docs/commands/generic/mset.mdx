@@ -1,0 +1,22 @@
+# MSET
+
+<Page
+  syntax={`MSET key value [key value ...]`}
+  module={"generic"}
+  categories={['write', 'slow']}
+  description={`Automatically set or modify multiple key/value pairs.`}
+  options={[]}
+  examples={{
+    cli: [{description: "", code: `MSET key1 value1 key2 value2 key3 value3`}],
+    go: [
+    {
+      description: "",
+      code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+ok, err := vault.MSet(map[string]string{"key1": "value1", "key2": "value2", "key3": "value3"})`
+    }
+    ]
+  }}
+/>

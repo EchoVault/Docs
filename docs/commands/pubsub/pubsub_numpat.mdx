@@ -1,0 +1,25 @@
+# PUBSUB NUMPAT
+
+<Page 
+  syntax={`PUBSUB NUMPAT`}
+  module={"pubsub"}
+  categories={["pubsub", "slow"]}
+  description={`Return the number of patterns that are currently subscribed to by clients.`}
+  options={[]}
+  examples={{
+    cli: [
+      { description: "", code: `PUBSUB NUMPAT` },
+    ],
+    go: [
+      {
+        description: "",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+numOfPatterns, err := vault.PubSubNumPat()
+`
+      }
+    ]
+  }}
+/>
