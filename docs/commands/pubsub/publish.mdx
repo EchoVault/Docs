@@ -1,0 +1,25 @@
+# PUBLISH
+
+<Page 
+  syntax={`PUBLISH channel message`}
+  module={"pubsub"}
+  categories={["pubsub", "fast"]}
+  description={`Publish a message to the specified channel.`}
+  options={[]}
+  examples={{
+    cli: [
+      { description: "", code: `PUBLISH channel1 "Hello, world!"` },
+    ],
+    go: [
+      {
+        description: "",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+ok, err := vault.Publish("channel1", "Hello, world!")
+`
+      }
+    ]
+  }}
+/>
