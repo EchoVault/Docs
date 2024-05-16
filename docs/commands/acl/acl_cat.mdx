@@ -1,0 +1,42 @@
+# ACL CAT
+
+<Page 
+  syntax={`ACL CAT [category]`}
+  module={"acl"}
+  categories={["slow"]}
+  description={`Lists all the categories. 
+If the optional category is provided, lists all the commands in the category.`}
+  options={[]}
+  examples={{
+    cli: [
+      {
+        description: "List all categories:",
+        code: `ACL CAT`
+      },
+      {
+        description: "List all commands/subcommands in pubsub module:",
+        code: `ACL CAT pubsub`
+      }
+    ],
+    go: [
+      {
+        description: "List all categories:",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+categories, err := vault.ACLCat()
+`
+      },
+      {
+        description: "List all commands/subcommands in pubsub module:",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+commands, err := vault.ACLCat("pubsub")
+`
+      }
+    ]
+  }}
+/>

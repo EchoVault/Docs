@@ -1,0 +1,37 @@
+# ACL LOAD
+
+<Page 
+  syntax={`ACL LOAD <MERGE | REPLACE>`}
+  module={"acl"}
+  categories={["admin", "slow", "dangerous"]}
+  description={`Reloads the rules from the configured ACL config file.
+When 'MERGE' is passed, users from config file who share a username with users in memory will be merged.
+When 'REPLACE' is passed, users from config file who share a username with users in memory will replace the user in memory.`}
+  options={[]}
+  examples={{
+    cli: [
+      { 
+        description: "Load ACL config file and merge it with currently loaded config:", 
+        code: `ACL LOAD MERGE` 
+      },
+      { 
+        description: "Load ACL config file and replace the currently loaded config:", 
+        code: `ACL LOAD REPLACE` 
+      }
+    ],
+    go: [
+      { 
+        description: "",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+// Load config and merge with currently loaded ACL config
+ok, err := vault.ACLLoad(echovault.ACLLoadOptions{Merge: true})
+
+// Load config and replace currently loaded ACL config
+ok, err := vault.ACLLoad(echovault.ACLLoadOptions{Replace: true})`
+      }
+    ]
+  }}
+/>

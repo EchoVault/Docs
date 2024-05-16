@@ -1,0 +1,27 @@
+# ACL DELUSER
+
+<Page 
+  syntax={`ACL DELUSER username [username ...]`}
+  module={"acl"}
+  categories={["admin", "slow", "dangerous"]}
+  description={`Deletes users and terminates their connections. Cannot delete default user.`}
+  options={[]}
+  examples={{
+    cli: [
+      {
+        description: "",
+        code: `ACL DELUSER username1 username2`
+      },
+    ],
+    go: [
+      { 
+        description: "",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+ok, err := vault.ACLDelUser("username1", "username2")`
+      }
+    ]
+  }}
+/>
