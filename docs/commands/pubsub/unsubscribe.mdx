@@ -1,0 +1,37 @@
+# UNSUBSCRIBE
+
+<Page 
+  syntax={`UNSUBSCRIBE [channel [channel ...]] `}
+  module={"pubsub"}
+  categoies={["pubsub", "connection", "slow"]}
+  description={`Unsubscribe from a list of channels.
+If the channel list is not provided, then the connection will be unsubscribed from all the channels that
+it's currently subscribe to.`}
+  options={[]}
+  examples={{
+    cli: [
+      { description: "Unsubscribe from all channels:", code: `UNSUBSCRIBE` },
+      { description: "Unsubscribe from specific channels:", code: `UNSUBSCRIBE channel1 channel2` }
+    ],
+    go: [
+      {
+        description: "Unsubscribe from all channels:",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+vault.Unsubscribe("subscription_tag_i")
+`
+      },
+      {
+        description: "Unsubscribe from specific channels:",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+vault.Unsubscribe("subscription_tag_i", "channel1", "channel2")
+`
+      }
+    ]
+  }}
+/>

@@ -1,0 +1,37 @@
+# PUNSUBSCRIBE
+
+<Page 
+  syntax={`PUNSUBSCRIBE [pattern [pattern ...]] `}
+  module={"pubsub"}
+  categoies={["pubsub", "connection", "slow"]}
+  description={`Unsubscribe from a list of channels using patterns.
+If the pattern list is not provided, then the connection will be unsubscribed from all the patterns that
+it's currently subscribe to.`}
+  options={[]}
+  examples={{
+    cli: [
+      { description: "Unsubscribe from all patterns:", code: `PUNSUBSCRIBE` },
+      { description: "Unsubscribe from specific patterns:", code: `PUNSUBSCRIBE pattern_[12] pattern_h[ae]llo` }
+    ],
+    go: [
+      {
+        description: "Unsubscribe from all patterns:",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+vault.PUnsubscribe("subscription_tag_1")
+`
+      },
+      {
+        description: "Unsubscribe from specific patterns:",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+vault.PUnsubscribe("subscription_tag_1", "pattern_[12]", "pattern_h[ae]llo")
+`
+      }
+    ]
+  }}
+/>
