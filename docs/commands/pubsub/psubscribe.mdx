@@ -1,0 +1,40 @@
+# PSUBSCRIBE
+
+<Page 
+  syntax={`PSUBSCRIBE pattern [pattern ...]`}
+  module={"pubsub"}
+  categoies={["pubsub", "connection", "slow"]}
+  description={`Subscribe to one or more patterns. This command accepts glob patterns.`}
+  options={[]}
+  examples={{
+    cli: [{ description: "", code: `PSUBSCRIBE pattern [pattern ...]` }],
+    go: [
+      { 
+        description: `The Subscribe method returns a readMessage function.
+        This method is lazy so it must be invoked each time the you want to read the next message from
+        the pattern.` 
+      },
+      {
+        description: `When subscribing to an'N' number of patterns, the first N messages will be
+        the subscription confimations.`
+      },
+      {
+        description: `The readMessage functions returns a message object when called. The message
+        object is a string slice with the following inforamtion: 
+        event type at index 0 (e.g. subscribe, message), pattern at index 1,
+        message/subscription index at index 2.`
+      },
+      {
+        description: "",
+        code: `vault, err := echovault.NewEchoVault()
+if err != nil {
+  log.Fatal(err)
+}
+readMessage := vault.PSubscribe("subscribe_tag_1", "pattern_[12]", "pattern_h[ae]llo") // Return lazy readMessage function
+for i := 0; i < 2; i++ {
+  message := readMessage() // Call the readMessage function for each channel subscription.
+}`
+      }
+    ]
+  }}
+/>

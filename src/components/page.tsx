@@ -102,7 +102,9 @@ function Page({
                 examples.cli.map((example, index) => (
                   <div key={`cli-example-${index}`}>
                     <p>{example.description}</p>
-                    <CodeBlock>{example.code}</CodeBlock>
+                    {example?.code?.length > 0 && (
+                      <CodeBlock>{example.code}</CodeBlock>
+                    )}
                   </div>
                 ))}
             </div>
@@ -113,7 +115,9 @@ function Page({
                 examples.go.map((example, index) => (
                   <div key={`go-example-${index}`}>
                     <p>{example.description}</p>
-                    <CodeBlock language="go">{example.code}</CodeBlock>
+                    {example?.code?.length && (
+                      <CodeBlock language="go">{example.code}</CodeBlock>
+                    )}
                   </div>
                 ))}
             </div>
