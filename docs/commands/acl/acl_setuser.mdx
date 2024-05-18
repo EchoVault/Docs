@@ -1,7 +1,7 @@
 # ACL SETUSER
 
 <Page 
-  syntax={`ACL SETUSER`}
+  syntax={`ACL SETUSER <username> [rules]`}
   module={"acl"}
   categories={["admin", "slow", "dangerous"]}
   description={`Configure a new or existing user.`}
@@ -9,8 +9,8 @@
   examples={{
     cli: [
       {
-        description: "",
-        code: `ACL SETUSER`
+        description: <div>Checkout the <a href="/docs/acl">Access Control List documentation</a> for the list of rules.</div>,
+        code: `ACL SETUSER username`
       },
     ],
     go: [
