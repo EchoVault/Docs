@@ -21,5 +21,5 @@ Pre-requisites:
 Steps:
 
 1. Clone the repository.
-2. If you're on MacOS, you can run `make build && docker-compose up --build` to build the project and spin up the development docker container.
+2. If you're on MacOS, you can run `make run` to build the project and spin up the development docker container.
 3. If you're on another OS, you will have to use `go build` with the relevant flags for your system.
