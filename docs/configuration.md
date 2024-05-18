@@ -82,6 +82,11 @@ Flag: `--snapshot-interval`<br/>
 Type: `string`<br/>
 Description: The interval between snapshots. You can provide a parseable time format such as `30m45s` or `1h45m`. The default is 5 minutes.
 
+Flag: `--aof-sync-strategy`<br/>
+Type: `string`<br/>
+Description: How often to flush the file contents written to append only file.
+The options are `always` for syncing on each command, `everysec` to sync every second, and `no` to leave it up to the os.
+
 Flag: `--restore-snapshot`<br/>
 Type: `boolean`<br/>
 Description: Determines whether to restore from a snapshot on startup. The default is `false`.
