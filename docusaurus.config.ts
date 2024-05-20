@@ -50,6 +50,11 @@ const config: Config = {
     colorMode: {
       respectPrefersColorScheme: true,
     },
+    algolia: {
+      appId: "QGK73FSNRI",
+      apiKey: "f9225d8721591a9664e4346847407e2d",
+      indexName: "echovault",
+    },
     // Replace with your project's social card
     navbar: {
       title: "",
