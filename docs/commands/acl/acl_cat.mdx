@@ -1,42 +1,59 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # ACL CAT
 
-<Page 
-  syntax={`ACL CAT [category]`}
-  module={"acl"}
-  categories={["slow"]}
-  description={`Lists all the categories. 
-If the optional category is provided, lists all the commands in the category.`}
-  options={[]}
-  examples={{
-    cli: [
-      {
-        description: "List all categories:",
-        code: `ACL CAT`
-      },
-      {
-        description: "List all commands/subcommands in pubsub module:",
-        code: `ACL CAT pubsub`
-      }
-    ],
-    go: [
-      {
-        description: "List all categories:",
-        code: `vault, err := echovault.NewEchoVault()
-if err != nil {
-  log.Fatal(err)
-}
-categories, err := vault.ACLCat()
-`
-      },
-      {
-        description: "List all commands/subcommands in pubsub module:",
-        code: `vault, err := echovault.NewEchoVault()
-if err != nil {
-  log.Fatal(err)
-}
-commands, err := vault.ACLCat("pubsub")
-`
-      }
-    ]
-  }}
-/>
+### Syntax
+```
+ACL CAT [category]
+```
+
+### Module
+<span className="acl-category">acl</span>
+
+### Categories
+<span className="acl-category">slow</span>
+
+### Description
+Lists all the categories. If the optional category is provided, lists all the commands in the category.
+
+### Examples
+
+<Tabs
+  defaultValue="go"
+  values={[
+    { label: 'Go (Embedded)', value: 'go', },
+    { label: 'CLI', value: 'cli', },
+  ]}
+>
+  <TabItem value="go">
+    List all categories:
+    ```go
+    vault, err := echovault.NewEchoVault()
+    if err != nil {
+      log.Fatal(err)
+    }
+    categories, err := vault.ACLCat()
+    ```
+    
+    List all commands/subcommands in pubsub module:
+    ```go
+    vault, err := echovault.NewEchoVault()
+    if err != nil {
+      log.Fatal(err)
+    }
+    commands, err := vault.ACLCat("pubsub")
+    ```
+  </TabItem>
+  <TabItem value="cli">
+  List all categories:
+  ```
+  > ACL CAT
+  ```
+  
+  List all commands/subcommands in pubsub module:
+  ```
+  > ACL CAT pubsub
+  ```
+  </TabItem>
+</Tabs>
