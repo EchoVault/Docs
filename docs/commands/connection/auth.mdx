@@ -1,11 +1,11 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# PING
+# AUTH
 
 ### Syntax
 ```
-PING [message]
+AUTH [username] password
 ```
 
 ### Module
@@ -13,11 +13,11 @@ PING [message]
 
 ### Categories
 <span className="acl-category">connection</span>
-<span className="acl-category">fast</span>
+<span className="acl-category">slow</span>
 
 ### Description
-Ping the echovault server. If a message is provided, the message will be echoed back to the client.
-Otherwise, the server will return "PONG".
+Authenticates the connection. If the username is not provided, the connection will be authenticated against the
+default ACL user. Otherwise, it is authenticated against the ACL user with the provided username.
 
 ### Examples
 
@@ -34,13 +34,13 @@ Otherwise, the server will return "PONG".
     ```
   </TabItem>
   <TabItem value="cli">
- Ping without message (returns PONG):
+  Authenticate against the default user:
   ```
-  > PING
+  > AUTH password
   ```
-  Ping with message (returns "Hello, world!"):
+  Authenticate against a specific user:
   ```
-  > PING "Hello, world!"
+  > AUTH username password
   ```
   </TabItem>
 </Tabs>
