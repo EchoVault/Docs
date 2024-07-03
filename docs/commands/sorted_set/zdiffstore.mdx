@@ -46,30 +46,3 @@ If the base set (first key) does not exist, return 0, otherwise, return the card
     ```
   </TabItem>
 </Tabs>
-
-
-
-# ZDIFF
-
-<Page
-  syntax={`ZDIFFSTORE destination key1 key2`}
-  module={"sortedset"}
-  categories={["sortedset", "write", "slow"]}
-  description={`Computes the difference between all the sorted sets specifies in the list of keys. Stores the result in destination.
-If the base set (first key) does not exist, return 0, otherwise, return the cardinality of the diff.`}
-  options={[]}
-  examples={{
-    cli: [{
-      description: "Store the difference between 2 sorted sets:", 
-      code: `ZDIFFSTORE destination key1 key2`
-    }],
-    go: [{
-      description: "Store the difference between 2 sorted sets:",
-      code: `vault, err := echovault.NewEchoVault()
-if err != nil {
-  log.Fatal(err)
-}
-cardinality, err := vault.ZDiffStore("destination", "key1", "key2")`
-    }]
-  }}
-/>
