@@ -1,37 +1,61 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # PUNSUBSCRIBE
 
-<Page 
-  syntax={`PUNSUBSCRIBE [pattern [pattern ...]]`}
-  module={"pubsub"}
-  categories={["pubsub", "connection", "slow"]}
-  description={`Unsubscribe from a list of channels using patterns.
+### Syntax
+```
+PUNSUBSCRIBE [pattern [pattern ...]]
+```
+
+### Module
+<span className="acl-category">pubsub</span>
+
+### Categories 
+<span className="acl-category">pubsub</span>
+<span className="acl-category">connection</span>
+<span className="acl-category">slow</span>
+
+### Description 
+Unsubscribe from a list of channels using patterns.
 If the pattern list is not provided, then the connection will be unsubscribed from all the patterns that
-it's currently subscribe to.`}
-  options={[]}
-  examples={{
-    cli: [
-      { description: "Unsubscribe from all patterns:", code: `PUNSUBSCRIBE` },
-      { description: "Unsubscribe from specific patterns:", code: `PUNSUBSCRIBE pattern_[12] pattern_h[ae]llo` }
-    ],
-    go: [
-      {
-        description: "Unsubscribe from all patterns:",
-        code: `vault, err := echovault.NewEchoVault()
-if err != nil {
-  log.Fatal(err)
-}
-vault.PUnsubscribe("subscription_tag_1")
-`
-      },
-      {
-        description: "Unsubscribe from specific patterns:",
-        code: `vault, err := echovault.NewEchoVault()
-if err != nil {
-  log.Fatal(err)
-}
-vault.PUnsubscribe("subscription_tag_1", "pattern_[12]", "pattern_h[ae]llo")
-`
-      }
-    ]
-  }}
-/>
+it's currently subscribed to.
+
+### Examples
+
+<Tabs
+  defaultValue="go"
+  values={[
+    { label: 'Go (Embedded)', value: 'go', },
+    { label: 'CLI', value: 'cli', },
+  ]}
+>
+  <TabItem value="go">
+    Unsubscribe from all patterns:
+    ```go
+    vault, err := echovault.NewEchoVault()
+    if err != nil {
+      log.Fatal(err)
+    }
+    vault.PUnsubscribe()
+    ```
+    Unsubscribe from specific patterns:
+    ```go
+    vault, err := echovault.NewEchoVault()
+    if err != nil {
+      log.Fatal(err)
+    }
+    vault.PUnsubscribe("pattern_[12]", "pattern_h[ae]llo")
+    ```
+  </TabItem>
+  <TabItem value="cli">
+    Unsubscribe from all patterns:
+    ```
+    > PUNSUBSCRIBE
+    ```
+    Unsubscribe from specific patterns:
+    ```
+    > PUNSUBSCRIBE pattern_[12] pattern_h[ae]llo
+    ```
+  </TabItem>
+</Tabs>
