@@ -48,13 +48,9 @@ Description: If this node is part of a raft replication cluster, then this flag 
 
 Flag: `--join-addr`<br/>
 Type: `string`<br/>
-Description: When adding a node to a replication cluster, this is the address and port of any cluster member. The current node will use this to request permission to join the cluster. The format of this flag is `<ip-address>:<memberlist-port>`.
+Description: When adding a node to a replication cluster, this is the address and port of any cluster member. The current node will use this to request permission to join the cluster. The format of this flag is `<ip-address>:<discovery-port>`.
 
-Flag: `--raft-port`<br/>
-Type: `integer`<br/>
-Description: If starting a node in a raft replication cluster, this port will be used for communication between nodes on the raft layer. The default is `7481`.
-
-Flag: `--memberlist-port`<br/>
+Flag: `--discovery-port`<br/>
 Type: `integer`<br/>
 Description. If starting a node in a replication cluster, this port is used for communication between nodes on the memberlist layer. The default is `7946`.
 
