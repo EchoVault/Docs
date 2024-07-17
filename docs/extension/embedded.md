@@ -2,7 +2,7 @@
 
 EchoVault allows you to programmetically extend its list of commands ar runtime.
 
-The `AddCommand` method allows you to extend the EchoVault server by adding new commands and subcommands.
+The <a target="_blank" href="https://pkg.go.dev/github.com/echovault/echovault@v0.10.1/echovault#EchoVault.AddCommand">`AddCommand`</a> method allows you to extend the EchoVault server by adding new commands and subcommands.
 
 Each command can have its own handler and key extraction logic. This method ensures that commands are unique within the server and properly integrated with the existing command handling infrastructure.
 
@@ -14,7 +14,7 @@ func (server *EchoVault) AddCommand(command CommandOptions) error
 
 ## Parameters
 
-- `command` - An instance of `CommandOptions` which provides the specification of the command to be added.
+- `command` - An instance of <a target="_blank" href="https://pkg.go.dev/github.com/echovault/echovault@v0.10.1/echovault#CommandOptions">`CommandOptions`</a> which provides the specification of the command to be added.
 
 ## Errors
 
@@ -196,6 +196,6 @@ of the subcommand slice. If a subcommand cannot be found, an error is returned.
 
 ## Executing Custom Commands
 
-### Execute Command Without Subcommands
+### Execute Command without Subcommands
 
-### Execute Command With Subcommands
+### Execute Command with Subcommands
