@@ -29,7 +29,7 @@ The `AddCommand` method performs the following steps:
    - **Without Subcommands**: If the command does not have subcommands, it adds the command directly to the server's command list.
    - **With Subcommands**: If the command has subcommands, it initializes a new command structure and iterates through the provided subcommands to add them to the server's command list.
 
-## Usage
+## Execute Custom Commands
 
 ### Adding a Command without Subcommands
 
@@ -196,6 +196,114 @@ of the subcommand slice. If a subcommand cannot be found, an error is returned.
 
 ## Executing Custom Commands
 
+You can use the custom command using the `ExecuteCommand` method. The method has the following definition:
+
+```go
+func (server *EchoVault) ExecuteCommand(command ...string) ([]byte, error)
+```
+
+It accepts a command of varying length to accomodate any custom command. The command passed is case insensitive. So "COPYDEFAULT" is considered the same as "copydefault".
+
+The returned values are:
+
+1. A byte slice containing the raw RESP returned from the custom command handler.
+2. The error returned from the command handler in RESP error format.
+
 ### Execute Command without Subcommands
 
+Here's an example of executing the COPYDEFAULT custom command that we created previously:
+
+```go
+// Set the values for key1 and key2
+_, _ = server.MSet(map[string]string{
+  "key1": "value1",
+  "key2": "value2",
+})
+
+// Execute the custom COPYDEFAULT command
+res, err := server.ExecuteCommand("COPYDEFAULT", "key1", "key2")
+if err != nil {
+  fmt.Println(err)
+} else {
+  fmt.Println(string(res))
+}
+
+// Execute COPYDEFAULT command with lower case parameters
+res, err := server.ExecuteCommand("copydefault", "key1", "key2")
+if err != nil {
+  fmt.Println(err)
+} else {
+  fmt.Println(string(res))
+}
+```
+
 ### Execute Command with Subcommands
+
+Example of executing custom subcommands created previously:
+
+```go
+// Execute subcommand 1
+res, err := server.ExecuteCommand("MYCOMMAND", "SUB1")
+if err != nil {
+  fmt.Println(err)
+} else {
+  fmt.Println(string(res))
+}
+
+// Execute subcommand 2
+res, err := server.ExecuteCommand("mycommand", "sub2")
+if err != nil {
+  fmt.Println(err)
+} else {
+  fmt.Println(string(res))
+}
+```
+
+## Removing Commands
+
+You can remove commands using the `RemoveCommand` method. This methods does not only remove programmatically added commands but any commands loaded into the EchoVault instance. Including built-in commands and commands loaded from shared object files.
+
+The method has the following signature:
+
+```go
+func (server *EchoVault) RemoveCommand(command ...string)
+```
+
+It accepts a command or subcommand to remove. If you'd like to remove an entire command, including all it's subcommands, you can pass only the command name. If you'd like to remove a particular subcommand but retain the command and it's other subcommands, then you must pass the names of command and the subcommand you'd like to delete.
+
+### Remove Command with no Subcommandsa
+
+Example demonstrating how to remove the "COPYDEFAULT" command created previously.
+
+```go
+server.RemoveCommand("COPYDEFAULT")
+```
+
+### Remove a Subcommand
+
+To remove the "SUB1" subcommand of the "MYCOMMAND" command, you can pass the following parameters:
+
+```go
+server.RemoveCommand("MYCOMMAND", "SUB1")
+```
+
+This leaves the "MYCOMMAND" command and "SUB2" subcommand available for execution.
+
+### Remove an entire Command with Multiple Subcommands
+
+If you'd like to remove the entirety of "MYCOMMAND" along with all its subcommands, you can pass the top-level command name as follows:
+
+```go
+server.RemoveCommand("MYCOMMAND")
+```
+
+### Example
+
+## Important considerations
+
+Programmatically extending EchoVault like this brings some challenges:
+
+- If you're running in cluster mode, you have to make sure the custom command is added to all the nodes and that the command's key extraction and handler function implementations are exactly identical. Otherwise, the cluster will not be able to accurately sync the command's side effects across the cluster.
+- When removing commands programmetically, you must make sure to remove the commands accross the entire cluster otherwise, the nodes with the missing command will not be able to replicate the command's side effects.
+
+Due to the reasons above, it's recommended that programmatically adding/removing commands should be done in standalone mode. It can be done in a cluster, but you must be careful and take into account the considerations above.
