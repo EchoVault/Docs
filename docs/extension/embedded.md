@@ -259,6 +259,20 @@ if err != nil {
 }
 ```
 
+### Execute in TCP client
+
+You can also execute programmatically added commands with a Redis client over TCP such as redis-cli. An example of executing the COPYDEFAULT commands looks as follows:
+
+```
+> COPYDEFAULT key1 key2
+```
+
+To execute one of the subcommands:
+
+```
+> MYCOMMAND SUB1
+```
+
 ## Removing Commands
 
 You can remove commands using the `RemoveCommand` method. This methods does not only remove programmatically added commands but any commands loaded into the EchoVault instance. Including built-in commands and commands loaded from shared object files.
