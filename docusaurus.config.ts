@@ -54,6 +54,7 @@ const config: Config = {
       appId: "QGK73FSNRI",
       apiKey: "f9225d8721591a9664e4346847407e2d",
       indexName: "echovault",
+      contextualSearch: false,
     },
     // Replace with your project's social card
     navbar: {
